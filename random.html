@@ -2,14 +2,31 @@
 <html>
 <head>
   <title>JavaScript Example</title>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .add-left-padding {
+      padding-left: 100px;
+    }
+  </style>
 </head>
 <body>
-  <h1 onmousemove="showCoordinates()" ondblclick="sayHello()">Alexander Hamilton</h1>
+  <h1 onclick="toggleParagraph()">Alexander Hamilton</h1>
+  <!-- <h1 onmousemove="showCoordinates()" ondblclick="sayHello()">Alexander Hamilton</h1> -->
   <p onclick="sayGoodbye()">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
   <p>Here is the X:</p>
   <p class="x-coordinate"></p>
   <p>Here is the Y:</p>
   <p class="y-coordinate"></p>
+  <button onclick="makeHeaderRandomColor()">Want to move the header over? click here!</button>
+
   <script>
     function sayHello() {
       console.log('hello');
@@ -34,6 +51,40 @@
       yCoordinateParagraph.innerText = y;
       // console.log(coor);
     }
+
+    function toggleParagraph() {
+      console.log("I'm gonna go hide the paragraph");
+      // grab the correct html element (with document.querySelector)
+      var paragraph = document.querySelector('p');
+      console.log(paragraph);
+      // modify it
+      paragraph.classList.toggle("hidden");
+    }
+
+    function makeHeaderRandomColor() {
+      // make sure function works
+      // console.log('making the header red');
+      // // grab correct html element
+      // var header = document.querySelector('h1');
+      // console.log(header);
+      // // modify that element
+      // header.classList.add('add-left-padding');
+      var header = document.querySelector('h1');
+      // modify that element
+      var randomColor = getRandomColor();
+      header.style.color = randomColor;
+    }
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        console.log(color);
+      }
+      return color;
+    }
+
   </script>
 </body>
 </html>

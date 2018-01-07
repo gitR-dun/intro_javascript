@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <p onmousedown="changeParagraph()">First p tag</p>
+  <p onmousedown="changeParagraph()">Second p tag</p>
+  <p onmousedown="changeParagraph()">Third p tag</p>
+  <p onmousedown="changeParagraph()">Fourth p tag</p>
+  <script>
+    function changeParagraph() {
+      var ptag = document.querySelector('p');
+      ptag.classList.add('red');
+    }
+  </script>
+</body>
+</html>
