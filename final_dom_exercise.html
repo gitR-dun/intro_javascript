@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+
+  <style type="text/css">
+    .completed {
+      text-decoration: line-through;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <p onclick="completeTask(this)">Pay bills</p>
+  <p onclick="completeTask(this)">Wash car</p>
+  <p onclick="completeTask(this)">Get laundry</p>
+  <button onclick="hideCompletedTasks()">Remove completed Tasks</button>
+  <button onclick="showHiddenTasks()">Show Hidden Tasks</button>
+  <p id="the-count"></p>
+  <script type="text/javascript">
+    function completeTask(paragraph) {
+      paragraph.classList.toggle('completed');
+      var completedTasks = document.querySelectorAll('.completed');
+      var count = completedTasks.length
+      var theCount = document.querySelector('#the-count');
+      theCount.innerText = count;
+    }
+
+    function hideCompletedTasks() {
+      // grab all the completed tasks
+      var completedTasks = document.querySelectorAll('.completed');
+      // change the styling of EACH of them so they're hidden
+      completedTasks.forEach(function(completedTask) {
+        completedTask.classList.add('hidden');
+      })
+    }
+
+    function showHiddenTasks() {
+      var hiddenTasks = document.querySelectorAll('.hidden');
+      hiddenTasks.forEach(function(hiddenTask) {
+        hiddenTask.classList.remove('hidden');
+      })
+    }
+
+    function countCompleted() {
+      // find the number of completed tasks
+
+      // show the user how many there are
+    }
+  </script>
+</body>
+</html>
