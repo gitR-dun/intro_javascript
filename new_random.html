@@ -8,14 +8,26 @@
   </style>
 </head>
 <body>
-  <p onmousedown="changeParagraph()">First p tag</p>
-  <p onmousedown="changeParagraph()">Second p tag</p>
-  <p onmousedown="changeParagraph()">Third p tag</p>
-  <p onmousedown="changeParagraph()">Fourth p tag</p>
+  <p onmousedown="changeParagraph(this)">First p tag</p>
+  <p onmousedown="changeParagraph(this)">Second p tag</p>
+  <p onmousedown="changeParagraph(this)">Third p tag</p>
+  <p onmousedown="changeParagraph(this)">Fourth p tag</p>
+
+  <button onclick="changeAllParagraphs()">Change all the paragraphs</button>
   <script>
-    function changeParagraph() {
-      var ptag = document.querySelector('p');
-      ptag.classList.add('red');
+    function changeParagraph(paragraph) {
+      paragraph.classList.add('red');
+    }
+
+    function changeAllParagraphs() {
+      console.log('changing the paragraphs...');
+      // grab ALLL the paragraphs
+      var paragraphs = document.querySelectorAll('p');
+      // console.log(paragraphs);
+      for (var i = 0; i < paragraphs.length; i++) {
+      // change the color of each the the paragraphs
+        paragraphs[i].classList.add('red');
+      }
     }
   </script>
 </body>
